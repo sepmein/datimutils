@@ -307,3 +307,35 @@ loginToDATIMOAuth <- function(
            envir = d2_session_envir)
   }
 }
+
+#' @export
+loginAddToken <- function(
+	base_url = "https://extranet.who.int/dhis2/",
+	token = NULL,
+	d2_session_name = "d2_default_session",
+	d2_session_envir = parent.frame()) {
+	handle <- httr::handle(base_url)
+	url <- utils::URLencode(URL = paste0(base_url, "api", "/me"))
+	r <- httr::GET(
+		url,
+		httr::add_headers(
+				`Content-Type` = "application/json",
+				Authorization = paste0("ApiToken ", token)
+				),
+		httr::timeout(60),
+		handle = handle
+	)
+	if (r$status_code != 200L) {
+		stop("Could not authenticate you with the server!")
+	} else {
+		me <- jsonlite::fromJSON(httr::content(r, as = "text"))
+		# create the session object in the calling environment of the login function
+		assign(d2_session_name,
+		       d2Session$new(base_url = base_url,
+		                     handle = handle,
+		                     me = me,
+		                     token = token),
+		       envir = d2_session_envir)
+	}
+}
+
