@@ -444,7 +444,7 @@ cat(tabl)
 
 ## Retrieving data using `getAnalytics`
 
-Getting metadata deatils is very useful, but if you are interacting with DATIM from R, you probably want some data too. For this you will use `getAnalytics`. It takes arguments for dimensions and filters which then returns aggregated data (tracker and event data are not currently supported). Here is an example:
+Getting metadata details is very useful, but if you are interacting with DATIM from R, you probably want some data too. For this you will use `getAnalytics`. It takes arguments for dimensions and filters which then returns aggregated data (tracker and event data are not currently supported). Here is an example:
 
 ```{r}
 #Get ANC: Key Coverages

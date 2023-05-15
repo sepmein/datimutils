@@ -103,8 +103,8 @@ api_get <- function(path,
                     httr::timeout(timeout),
                     handle = handle,
                     httr::add_headers(Authorization =
-                                        paste("Bearer",
-                                              d2_session$token$credentials$access_token, sep = " ")))
+                                        paste("ApiToken",
+                                              d2_session$token, sep = " ")))
         }
 
       )
