@@ -5,7 +5,7 @@
 To install:
 
 ```R
-devtools::install_github(repo = "https://github.com/pepfar-datim/datimutils.git", ref = "master")
+devtools::install_github(repo = "https://github.com/sepmein/datimutils.git", ref = "master")
 ```
 
 For bug reports or feature requests:
