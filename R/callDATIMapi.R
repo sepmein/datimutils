@@ -10,7 +10,7 @@
 #' @param verbose return raw content with data
 #' @param quiet Echo the URL which is called to the console.
 #' @return Result of DATIM API query returned as named list.
-#'
+#' @export
 api_get <- function(path,
                     d2_session,
                     retry = 1, timeout = 60,
